@@ -65,5 +65,4 @@ if uploaded_file is not None:
             st.write(chunk)
             st.divider()
 
-        st.subheader("LLM Prompt")
-        st.text_area("Prompt", prompt, height=300)
+      
