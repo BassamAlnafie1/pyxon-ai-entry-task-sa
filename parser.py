@@ -1,12 +1,13 @@
 import os
-import pymupdf
+import fitz
 import docx
+
 def parse_txt(path):
     with open(path, "r", encoding="utf-8") as f:
         return f.read()
 
 def parse_pdf(path):
-    pdf = pymupdf.open(path)
+    pdf = fitz.open(path)
     text = ""
     for page in pdf:
         text += page.get_text()
@@ -24,25 +25,14 @@ def parse_file(path):
 
     if ext == ".txt":
         return parse_txt(path)
-
     elif ext == ".pdf":
         return parse_pdf(path)
-
     elif ext == ".docx":
         return parse_docx(path)
-
     else:
-        return "Unsupported file type"     
+        return "Unsupported file type"
 
 def clean_text(text):
-
     text = text.replace("\n", " ")
-
     text = " ".join(text.split())
-
     return text
-
-
-words = len(all_text.split())
-
-paragraphs = len(all_text.split("\n"))
