@@ -43,23 +43,6 @@ def clean_text(text):
     return text
 
 
-all_text = ""
-
-files = [
-    "Data/Ai.txt",
-    "Data/rag.pdf",
-    "Data/saudi.docx"
-]
-
-for file in files:
-
-    text = parse_file(file)
-
-    text = clean_text(text)
-
-    all_text += text + "\n"
-
-#print(all_text)
 words = len(all_text.split())
 
 paragraphs = len(all_text.split("\n"))
